@@ -2,16 +2,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Login Page</title>
 
     <style>
         body {
-            font-family: Arial;
+            font-family: Arial, sans-serif;
             background: #f2f2f2;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
         }
 
         .login-box {
@@ -19,12 +21,14 @@
             padding: 30px;
             width: 300px;
             border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         input {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
+            box-sizing: border-box;
         }
 
         button {
@@ -32,6 +36,8 @@
             padding: 10px;
             background: blue;
             color: white;
+            border: none;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -42,36 +48,31 @@
 
     <h2>Login Page</h2>
 
-    <form>
-        <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password">
-        <button type="button" onclick="loginUser()">Login</button>
+    <form onsubmit="loginUser(event)">
+        <input type="text"
+               id="username"
+               placeholder="Username"
+               required>
+
+        <input type="password"
+               id="password"
+               placeholder="Password"
+               required>
+
+        <button type="submit">Login</button>
     </form>
 
 </div>
 
 <script>
-    function loginUser() {
-       let username="admin";
-        let password = "12345";
+    function loginUser(event) {
 
-C:\ProgramData\Jenkins\.jenkins\workspace\developer-6-repo-6-loginpage>node validate.js 
-C:\Windows\TEMP\login-check-7544-0.js:6
-        if (username === "admin" && password === "12345" ){
-                                                         ^
+        event.preventDefault();
 
-SyntaxError: Unexpected token '{'
-    at wrapSafe (node:internal/modules/cjs/loader:1735:18)
-    at checkSyntax (node:internal/main/check_syntax:76:3)
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
 
-Node.js v24.13.1
-
-JavaScript syntax validation FAILED
-
-C:\ProgramData\Jenkins\.jenkins\workspace\developer-6-repo-6-loginpage>exit 1 
-Build step 'Execute Windows batch command' marked build as failure
-Finished: FAILURE
-        if (username === "admin" && password === "12345" ){
+        if (username === "admin" && password === "12345") {
             alert("Login Successful");
         } else {
             alert("Login Failed");
