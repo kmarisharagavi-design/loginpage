@@ -52,9 +52,25 @@
 
 <script>
     function loginUser() {
-       
+       let username="admin";
         let password = "12345";
 
+C:\ProgramData\Jenkins\.jenkins\workspace\developer-6-repo-6-loginpage>node validate.js 
+C:\Windows\TEMP\login-check-7544-0.js:6
+        if (username === "admin" && password === "12345" ){
+                                                         ^
+
+SyntaxError: Unexpected token '{'
+    at wrapSafe (node:internal/modules/cjs/loader:1735:18)
+    at checkSyntax (node:internal/main/check_syntax:76:3)
+
+Node.js v24.13.1
+
+JavaScript syntax validation FAILED
+
+C:\ProgramData\Jenkins\.jenkins\workspace\developer-6-repo-6-loginpage>exit 1 
+Build step 'Execute Windows batch command' marked build as failure
+Finished: FAILURE
         if (username === "admin" && password === "12345" ){
             alert("Login Successful");
         } else {
